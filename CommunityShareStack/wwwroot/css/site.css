@@ -1,0 +1,225 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: nowrap;
+  text-align: left;
+  word-break: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  font-family: "Georgia", "Times New Roman", serif;
+  background: #f6f3ee;
+  color: #2a2927;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: #2d2a26;
+}
+
+.container {
+  max-width: 1100px;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.item-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(32, 28, 24, 0.08);
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(32, 28, 24, 0.12);
+}
+
+.item-image {
+  height: 220px;
+  background: #f1ede6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-image img {
+  max-height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.item-body {
+  padding: 14px 16px 16px;
+}
+
+.item-meta {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.item-title {
+  margin: 0 0 4px;
+}
+
+.item-subtitle {
+  color: #6b5f52;
+  font-size: 0.95rem;
+}
+
+.item-details {
+  color: #7a6f64;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+.item-rating {
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+.item-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.empty-state {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(32, 28, 24, 0.08);
+  text-align: center;
+}
+
+.star-rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 4px;
+  font-size: 1.2rem;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  color: #c2b8ab;
+  cursor: pointer;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #d2a441;
+}
+
+.review-stars {
+  color: #d2a441;
+  letter-spacing: 1px;
+}
+
+.save-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1b6ec2;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 1050;
+}
+
+.save-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}

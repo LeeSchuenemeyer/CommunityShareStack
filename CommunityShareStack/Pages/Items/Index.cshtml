@@ -1,0 +1,164 @@
+@page
+@model CommunityShareStack.Pages.Items.IndexModel
+@{
+    ViewData["Title"] = "Items";
+}
+
+<h1>Items</h1>
+
+<form method="get" class="mb-3">
+    <div class="form-group">
+        <label asp-for="SearchText">Search</label>
+        <input asp-for="SearchText" class="form-control" placeholder="Title, author, or ISBN" />
+    </div>
+    <div class="form-group">
+        <label>Search In</label>
+        <div class="form-check">
+            <input class="form-check-input" asp-for="SearchTitle" />
+            <label class="form-check-label" asp-for="SearchTitle">Title</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" asp-for="SearchAuthor" />
+            <label class="form-check-label" asp-for="SearchAuthor">Author</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" asp-for="SearchIsbn" />
+            <label class="form-check-label" asp-for="SearchIsbn">ISBN</label>
+        </div>
+        <small class="form-text text-muted">If none selected, all fields are searched.</small>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label asp-for="Availability">Availability</label>
+            <select asp-for="Availability" class="form-control">
+                <option value="">All</option>
+                <option value="available">Available</option>
+                <option value="checkedout">Checked out</option>
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="Category">Category</label>
+            <input asp-for="Category" class="form-control" />
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="Condition">Condition</label>
+            <select asp-for="Condition" class="form-control">
+                <option value="">All</option>
+                <option value="New">New</option>
+                <option value="LikeNew">Like New</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="Rating">Min Rating</label>
+            <select asp-for="Rating" class="form-control">
+                <option value="">All</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-secondary">Search</button>
+    <a asp-page="./Index" class="btn btn-light">Clear</a>
+</form>
+
+<p>
+    @if (User.IsInRole("Admin") || User.IsInRole("Librarian"))
+    {
+        <a class="btn btn-primary" asp-page="./Create">Add Item</a>
+    }
+</p>
+
+@if (Model.Items.Count == 0)
+{
+    <div class="empty-state">
+        <h4>No items found</h4>
+        <p>Try widening your filters or add your first item.</p>
+        @if (User.IsInRole("Admin") || User.IsInRole("Librarian"))
+        {
+            <a class="btn btn-primary" asp-page="./Create">Add Item</a>
+        }
+    </div>
+}
+else
+{
+    <div class="item-grid">
+    @foreach (var item in Model.Items)
+    {
+        <div class="item-card">
+            <div class="item-image">
+                @if (!string.IsNullOrWhiteSpace(item.FeaturedImageUrl))
+                {
+                    <img src="@item.FeaturedImageUrl" alt="Cover" />
+                }
+                else if (item.ItemType == CommunityShareStack.Models.ItemType.Book && !string.IsNullOrWhiteSpace(item.Isbn))
+                {
+                    <img src="https://covers.openlibrary.org/b/isbn/@item.Isbn-M.jpg" alt="Cover" />
+                }
+            </div>
+            <div class="item-body">
+                <div class="item-meta">
+                    <span class="badge badge-pill @(item.IsAvailable ? "badge-success" : "badge-secondary")">
+                        @(item.IsAvailable ? "Available" : "Checked out")
+                    </span>
+                    <span class="badge badge-pill badge-light">
+                        @(item.ItemType == CommunityShareStack.Models.ItemType.Book ? "📘 Book" : "🧰 Item")
+                    </span>
+                </div>
+                <h5 class="item-title">@item.Title</h5>
+                <div class="item-subtitle">@item.BookAuthor</div>
+                <div class="item-details">@item.Category · @item.Condition</div>
+                <div class="item-rating">
+                    @if (Model.AverageRatings.ContainsKey(item.Id))
+                    {
+                        <span>Rating: @Model.AverageRatings[item.Id].ToString("0.0") / 4</span>
+                    }
+                    else
+                    {
+                        <span class="text-muted">No ratings</span>
+                    }
+                </div>
+                <div class="item-actions">
+                    <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">View</a>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Librarian"))
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                    }
+                </div>
+                @if (User.IsInRole("Admin") || User.IsInRole("Librarian"))
+                {
+                    <form method="post" asp-page-handler="SetFeatured" class="mt-2">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        @if (item.Images != null && item.Images.Count > 0)
+                        {
+                            <div class="form-inline">
+                                <select name="featuredUrl" class="form-control form-control-sm mr-2">
+                                    @for (var i = 0; i < item.Images.Count; i++)
+                                    {
+                                        var image = item.Images[i];
+                                        if (image.ImageUrl == item.FeaturedImageUrl)
+                                        {
+                                            <option value="@image.ImageUrl" selected="selected">Image @(i + 1)</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@image.ImageUrl">Image @(i + 1)</option>
+                                        }
+                                    }
+                                </select>
+                                <button type="submit" class="btn btn-sm btn-outline-secondary">Set Featured</button>
+                            </div>
+                        }
+                    </form>
+                }
+            </div>
+        </div>
+    }
+    </div>
+}

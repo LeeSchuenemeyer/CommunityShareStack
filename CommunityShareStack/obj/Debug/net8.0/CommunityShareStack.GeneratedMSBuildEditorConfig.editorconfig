@@ -1,0 +1,119 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CommunityShareStack
+build_property.RootNamespace = CommunityShareStack
+build_property.ProjectDir = C:\Users\leschuen\Documents\GitHub\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\CommunityShareStack\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\leschuen\Documents\GitHub\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\CommunityShareStack
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Admin/Changelog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2hhbmdlbG9nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Admin/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Admin/Diagnostics/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGlhZ25vc3RpY3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Admin/History/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSGlzdG9yeVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Admin/ImportExport/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW1wb3J0RXhwb3J0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Admin/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Admin/Waitlist/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cV2FpdGxpc3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Items/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXRlbXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Items/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXRlbXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Items/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXRlbXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Items/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXRlbXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Items/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXRlbXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Loans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Profile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Reviews/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmV2aWV3c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Scan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NhblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leschuen/Documents/GitHub/Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook/CommunityShareStack/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

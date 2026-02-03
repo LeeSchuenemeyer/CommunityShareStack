@@ -1,0 +1,18 @@
+@page
+@model CommunityShareStack.Pages.Admin.Diagnostics.IndexModel
+@{
+    ViewData["Title"] = "Diagnostics";
+}
+
+<h1>Diagnostics</h1>
+
+<p>Use this to validate OpenAI connectivity. It performs a minimal request.</p>
+
+@if (!string.IsNullOrWhiteSpace(Model.StatusMessage))
+{
+    <div class="alert alert-info">@Model.StatusMessage</div>
+}
+
+<form method="post" asp-page-handler="TestOpenAi">
+    <button type="submit" class="btn btn-outline-primary">Test OpenAI</button>
+</form>

@@ -1,0 +1,28 @@
+@page
+@model CommunityShareStack.Pages.Admin.ImportExport.IndexModel
+@{
+    ViewData["Title"] = "Import / Export";
+}
+
+<h1>Import / Export</h1>
+
+@if (!string.IsNullOrWhiteSpace(Model.StatusMessage))
+{
+    <div class="alert alert-info">@Model.StatusMessage</div>
+}
+
+<h4>Export Inventory</h4>
+<form method="post" asp-page-handler="Export">
+    <button type="submit" class="btn btn-outline-secondary">Download CSV</button>
+</form>
+
+<hr />
+
+<h4>Import Inventory (CSV)</h4>
+<p class="text-muted">Columns: Title, Description, Category, Condition, ItemType, Isbn, BookAuthor, EstimatedValue, UniqueId, Notes</p>
+<form method="post" enctype="multipart/form-data" asp-page-handler="Import">
+    <div class="form-group">
+        <input type="file" name="Upload" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Import</button>
+</form>

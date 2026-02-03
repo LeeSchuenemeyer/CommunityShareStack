@@ -1,0 +1,23 @@
+@page
+@model CommunityShareStack.Pages.Admin.Changelog.IndexModel
+@{
+    ViewData["Title"] = "Changelog";
+}
+
+<h1>Changelog</h1>
+
+@foreach (var entry in Model.Entries)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5>Version @entry.Version</h5>
+            <div class="text-muted">@entry.Date.ToString("MMMM d, yyyy")</div>
+            <ul>
+            @foreach (var note in entry.Notes)
+            {
+                <li>@note</li>
+            }
+            </ul>
+        </div>
+    </div>
+}

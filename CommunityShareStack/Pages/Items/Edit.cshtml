@@ -1,0 +1,93 @@
+@page "{id:int}"
+@model CommunityShareStack.Pages.Items.EditModel
+@{
+    ViewData["Title"] = "Edit Item";
+}
+
+<h1>Edit Item</h1>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="Item.Id" />
+    <div class="form-group">
+        <label asp-for="Item.Title"></label>
+        <input asp-for="Item.Title" class="form-control" />
+        <span asp-validation-for="Item.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.Description"></label>
+        <textarea asp-for="Item.Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.Category"></label>
+        <input asp-for="Item.Category" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.Condition"></label>
+        <select asp-for="Item.Condition" class="form-control" asp-items="Model.ConditionOptions"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.ItemType"></label>
+        <select asp-for="Item.ItemType" class="form-control" asp-items="Model.ItemTypeOptions"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.EstimatedValue"></label>
+        <input asp-for="Item.EstimatedValue" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.Notes"></label>
+        <textarea asp-for="Item.Notes" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.UniqueId"></label>
+        <input asp-for="Item.UniqueId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.LoanDurationDays"></label>
+        <input asp-for="Item.LoanDurationDays" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.MaxRenewals"></label>
+        <input asp-for="Item.MaxRenewals" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.LateFeePerDayCents"></label>
+        <input asp-for="Item.LateFeePerDayCents" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.AutoApproveAllowed"></label>
+        <input asp-for="Item.AutoApproveAllowed" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.FeaturedImageUrl"></label>
+        <input asp-for="Item.FeaturedImageUrl" class="form-control" />
+    </div>
+    <hr />
+    <h4>Book Metadata (OpenLibrary)</h4>
+    <div class="form-group">
+        <label asp-for="Item.Isbn"></label>
+        <input asp-for="Item.Isbn" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.BookAuthor"></label>
+        <input asp-for="Item.BookAuthor" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.OpenLibraryWorkKey"></label>
+        <input asp-for="Item.OpenLibraryWorkKey" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.OpenLibraryEditionKey"></label>
+        <input asp-for="Item.OpenLibraryEditionKey" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.OpenLibraryJson"></label>
+        <textarea asp-for="Item.OpenLibraryJson" class="form-control" rows="6"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./Details" asp-route-id="@Model.Item.Id" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

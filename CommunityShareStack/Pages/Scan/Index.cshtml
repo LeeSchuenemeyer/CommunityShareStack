@@ -1,0 +1,127 @@
+@page
+@model CommunityShareStack.Pages.Scan.IndexModel
+@{
+    ViewData["Title"] = "Scan Items";
+}
+
+<h1>Scan Items</h1>
+
+<p>Upload front cover, back cover (ISBN), and title page for best results.</p>
+
+<form method="post" enctype="multipart/form-data" asp-page-handler="Upload">
+    <div class="form-group">
+        <input type="file" name="Uploads" class="form-control" multiple />
+    </div>
+    <button type="submit" class="btn btn-primary">Create Scan Session</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.StatusMessage))
+{
+    <div class="alert alert-info mt-3">@Model.StatusMessage</div>
+}
+
+@if (Model.RecentSessions.Count > 0)
+{
+    <h4 class="mt-4">Recent Sessions</h4>
+    <ul>
+    @foreach (var session in Model.RecentSessions)
+    {
+        <li>
+            <a asp-page="./Index" asp-route-id="@session.Id">Session #@session.Id</a>
+            - @session.Status - @session.CreatedAt.ToLocalTime().ToString("g")
+        </li>
+    }
+    </ul>
+}
+
+@if (Model.Session != null)
+{
+    <hr />
+    <h4>Session #@Model.Session.Id</h4>
+    <div class="mb-2">Status: @Model.Session.Status</div>
+    @if (Model.Session.Status == CommunityShareStack.Models.ScanStatus.Analyzing)
+    {
+        <div class="alert alert-info">Analyzing... this will refresh automatically.</div>
+        <script>
+            setTimeout(function () { window.location.reload(); }, 4000);
+        </script>
+    }
+    @if (Model.Session.Status == CommunityShareStack.Models.ScanStatus.Failed)
+    {
+        <div class="alert alert-danger">Analysis failed: @Model.Session.ErrorMessage</div>
+    }
+    <div class="d-flex flex-wrap">
+    @foreach (var image in Model.Session.Images)
+    {
+        <img src="@image.ImageUrl" alt="Scan image" style="max-width: 200px; margin-right: 10px; margin-bottom: 10px;" />
+    }
+    </div>
+
+    @if (Model.Session.Status == CommunityShareStack.Models.ScanStatus.Uploaded || Model.Session.Status == CommunityShareStack.Models.ScanStatus.Failed)
+    {
+        <form method="post" asp-page-handler="Analyze">
+            <input type="hidden" name="id" value="@Model.Session.Id" />
+            <button type="submit" class="btn btn-outline-primary">Analyze with ChatGPT</button>
+        </form>
+    }
+
+    @if (Model.Session.Status == CommunityShareStack.Models.ScanStatus.Analyzed)
+    {
+        <h5 class="mt-3">Extracted Preview</h5>
+        <div class="text-muted mb-2">Review and edit before creating the item.</div>
+
+        @if (Model.Candidates.Count > 0)
+        {
+            <div class="mb-2">
+                <strong>ISBN Candidates:</strong>
+                <ul>
+                @foreach (var c in Model.Candidates)
+                {
+                    <li>@c.Value (confidence: @c.Confidence.ToString("0.00"))</li>
+                }
+                </ul>
+            </div>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.Session.OcrText))
+        {
+            <div class="text-muted mb-2">OCR fallback used to detect ISBN.</div>
+        }
+
+        <form method="post" asp-page-handler="Confirm" class="mt-3">
+            <input type="hidden" name="id" value="@Model.Session.Id" />
+            <div class="form-group">
+                <label asp-for="Input.Title">Title</label>
+                <input asp-for="Input.Title" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Subtitle">Subtitle</label>
+                <input asp-for="Input.Subtitle" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Authors">Authors</label>
+                <input asp-for="Input.Authors" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Isbn">ISBN</label>
+                <input asp-for="Input.Isbn" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Publisher">Publisher</label>
+                <input asp-for="Input.Publisher" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.PublishYear">Publish Year</label>
+                <input asp-for="Input.PublishYear" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Language">Language</label>
+                <input asp-for="Input.Language" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Notes">Notes</label>
+                <textarea asp-for="Input.Notes" class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Item</button>
+        </form>
+    }
+}

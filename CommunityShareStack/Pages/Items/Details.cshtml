@@ -1,0 +1,169 @@
+@page "{id:int}"
+@model CommunityShareStack.Pages.Items.DetailsModel
+@{
+    ViewData["Title"] = "Item Details";
+}
+
+<h1>@Model.Item.Title</h1>
+
+<div class="mb-3">
+    <strong>Type:</strong> @Model.Item.ItemType<br />
+    <strong>Category:</strong> @Model.Item.Category<br />
+    <strong>Condition:</strong> @Model.Item.Condition<br />
+    <strong>Status:</strong> @(Model.Item.IsAvailable ? "Available" : "Checked out")<br />
+    <strong>Notes:</strong> @Model.Item.Notes
+</div>
+
+@if (User.IsInRole("Admin") || User.IsInRole("Librarian"))
+{
+    <div class="mb-3">
+        <a asp-page="./Edit" asp-route-id="@Model.Item.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+        <a asp-page="./Delete" asp-route-id="@Model.Item.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.Item.FeaturedImageUrl))
+{
+    <div class="mb-3">
+        <h5>Featured Image</h5>
+        <img src="@Model.Item.FeaturedImageUrl" alt="Item image" style="max-width: 240px; margin-right: 10px;" />
+    </div>
+}
+@if (string.IsNullOrWhiteSpace(Model.Item.FeaturedImageUrl) && Model.Item.ItemType == CommunityShareStack.Models.ItemType.Book && !string.IsNullOrWhiteSpace(Model.Item.Isbn))
+{
+    <div class="mb-3">
+        <h5>Featured Image</h5>
+        <img src="https://covers.openlibrary.org/b/isbn/@Model.Item.Isbn-M.jpg" alt="Item image" style="max-width: 240px; margin-right: 10px;" />
+    </div>
+}
+
+@if (Model.Item.Images.Count > 0)
+{
+    <div class="mb-3">
+        <h5>Images</h5>
+        <div class="d-flex flex-wrap">
+        @foreach (var image in Model.Item.Images)
+        {
+            <img src="@image.ImageUrl" alt="Item image" style="max-width: 200px; margin-right: 10px;" />
+        }
+        </div>
+    </div>
+}
+
+@if (User.Identity != null && User.Identity.IsAuthenticated)
+{
+    <form method="post">
+        <input type="hidden" name="id" value="@Model.Item.Id" />
+        <button type="submit" class="btn btn-primary">@(Model.Item.IsAvailable ? "Request Loan" : "Join Waitlist")</button>
+    </form>
+}
+else
+{
+    <p><a asp-area="Identity" asp-page="/Account/Login">Sign in</a> to request this item.</p>
+}
+
+@if (!string.IsNullOrEmpty(Model.StatusMessage))
+{
+    <div class="alert alert-info mt-3">@Model.StatusMessage</div>
+}
+
+@if ((User.IsInRole("Admin") || User.IsInRole("Librarian")) && Model.Item.Images.Count > 0)
+{
+    <hr />
+    <h4>Featured Image</h4>
+    <form method="post" asp-page-handler="SetFeatured">
+        <input type="hidden" name="id" value="@Model.Item.Id" />
+        <div class="d-flex flex-wrap">
+        @foreach (var image in Model.Item.Images)
+        {
+            <label class="mr-3 mb-2" style="display: inline-block;">
+                <input type="radio" name="featuredUrl" value="@image.ImageUrl" @(image.ImageUrl == Model.Item.FeaturedImageUrl ? "checked" : "") />
+                <img src="@image.ImageUrl" alt="Item image" style="max-width: 120px; margin-left: 6px;" />
+            </label>
+        }
+        </div>
+        <button type="submit" class="btn btn-sm btn-outline-primary">Set Featured Image</button>
+    </form>
+}
+
+@if (Model.Item.ItemType == CommunityShareStack.Models.ItemType.Book)
+{
+    <hr />
+    <h4>OpenLibrary Metadata</h4>
+    <p><strong>ISBN:</strong> @Model.Item.Isbn</p>
+    <p><strong>Author:</strong> @Model.Item.BookAuthor</p>
+    <p><strong>Work Key:</strong> @Model.Item.OpenLibraryWorkKey</p>
+    <p><strong>Edition Key:</strong> @Model.Item.OpenLibraryEditionKey</p>
+    <pre>@Model.Item.OpenLibraryJson</pre>
+}
+
+<hr />
+<h4>Reviews</h4>
+
+@if (Model.CanReview)
+{
+    <form method="post" asp-page-handler="Review">
+        <input type="hidden" name="id" value="@Model.Item.Id" />
+        <div class="form-group">
+            <label>Rating</label>
+            <div class="star-rating">
+                <input type="radio" id="star4" name="Rating" value="4" />
+                <label for="star4" title="4 stars">★</label>
+                <input type="radio" id="star3" name="Rating" value="3" />
+                <label for="star3" title="3 stars">★</label>
+                <input type="radio" id="star2" name="Rating" value="2" />
+                <label for="star2" title="2 stars">★</label>
+                <input type="radio" id="star1" name="Rating" value="1" />
+                <label for="star1" title="1 star">★</label>
+                <input type="radio" id="star0" name="Rating" value="0" />
+                <label for="star0" title="0 star">☆</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Comment">Comment</label>
+            <textarea class="form-control" name="Comment" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+}
+else if (User.Identity != null && User.Identity.IsAuthenticated)
+{
+    <p class="text-muted">You can review items you currently have checked out.</p>
+}
+
+@if (Model.Reviews.Count == 0)
+{
+    <p>No reviews yet.</p>
+}
+else
+{
+    <div class="list-group">
+    @foreach (var review in Model.Reviews)
+    {
+        <div class="list-group-item">
+            <strong>
+                @if (review.User != null && review.User.ShowNicknameOnly && !string.IsNullOrWhiteSpace(review.User.Nickname))
+                {
+                    @review.User.Nickname
+                }
+                else if (review.User != null && !string.IsNullOrWhiteSpace(review.User.FullName))
+                {
+                    @review.User.FullName
+                }
+                else
+                {
+                    @review.User?.Email
+                }
+            </strong>
+            <span class="text-muted">(@review.CreatedAt.ToLocalTime().ToString("g"))</span>
+            <div class="review-stars">
+                @for (var i = 0; i < 4; i++)
+                {
+                    <span>@(i < review.Rating ? "★" : "☆")</span>
+                }
+            </div>
+            <div>@review.Comment</div>
+        </div>
+    }
+    </div>
+}

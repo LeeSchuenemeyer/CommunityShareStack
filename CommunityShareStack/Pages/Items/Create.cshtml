@@ -1,0 +1,188 @@
+@page
+@model CommunityShareStack.Pages.Items.CreateModel
+@{
+    ViewData["Title"] = "Add Item";
+}
+
+<h1>Add Item</h1>
+
+<form method="post" asp-page-handler="Lookup">
+    <div class="form-group">
+        <label for="BookTitleQuery">Book Lookup</label>
+        <input asp-for="BookTitleQuery" class="form-control" id="BookTitleQuery" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BookSearchMode">Search By</label>
+        <select asp-for="BookSearchMode" class="form-control">
+            <option value="Title">Title</option>
+            <option value="Author">Author</option>
+            <option value="Isbn">ISBN</option>
+            <option value="All">All Fields</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-secondary">Lookup</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.StatusMessage))
+{
+    <div class="alert alert-info mt-3">@Model.StatusMessage</div>
+}
+
+@if (Model.SearchResults != null && Model.SearchResults.Count > 0)
+{
+    <form method="post" asp-page-handler="Select" class="mt-3">
+        <input type="hidden" asp-for="BookTitleQuery" />
+        <input type="hidden" asp-for="BookSearchMode" />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Cover</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>First Published</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
+            @for (var i = 0; i < Model.SearchResults.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <input type="radio" asp-for="SelectedIndex" value="@i" />
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrWhiteSpace(Model.SearchResults[i].CoverUrl))
+                        {
+                            <img src="@Model.SearchResults[i].CoverUrl" alt="Cover" style="max-width: 60px;" />
+                        }
+                    </td>
+                    <td>
+                        @Model.SearchResults[i].Title
+                        <input type="hidden" asp-for="SearchResults[i].Title" />
+                        <input type="hidden" asp-for="SearchResults[i].WorkKey" />
+                        <input type="hidden" asp-for="SearchResults[i].EditionKey" />
+                        <input type="hidden" asp-for="SearchResults[i].Isbn" />
+                        <input type="hidden" asp-for="SearchResults[i].AuthorName" />
+                        <input type="hidden" asp-for="SearchResults[i].FirstPublishYear" />
+                        <input type="hidden" asp-for="SearchResults[i].CoverId" />
+                        <input type="hidden" asp-for="SearchResults[i].CoverUrl" />
+                    </td>
+                    <td>@Model.SearchResults[i].AuthorName</td>
+                    <td>@Model.SearchResults[i].FirstPublishYear</td>
+                    <td>@Model.SearchResults[i].Isbn</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Use Selected Book</button>
+    </form>
+}
+
+<hr />
+
+<form method="post" asp-page-handler="Save">
+    @if (!string.IsNullOrEmpty(Model.StatusMessage))
+    {
+        <div class="alert alert-info">@Model.StatusMessage</div>
+    }
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Item.Title"></label>
+        <input asp-for="Item.Title" class="form-control" />
+        <span asp-validation-for="Item.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.Description"></label>
+        <textarea asp-for="Item.Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.Category"></label>
+        <input asp-for="Item.Category" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.Condition"></label>
+        <select asp-for="Item.Condition" class="form-control" asp-items="Model.ConditionOptions"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.ItemType"></label>
+        <select asp-for="Item.ItemType" class="form-control" asp-items="Model.ItemTypeOptions"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.EstimatedValue"></label>
+        <input asp-for="Item.EstimatedValue" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.Notes"></label>
+        <textarea asp-for="Item.Notes" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.UniqueId"></label>
+        <input asp-for="Item.UniqueId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.LoanDurationDays"></label>
+        <input asp-for="Item.LoanDurationDays" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.MaxRenewals"></label>
+        <input asp-for="Item.MaxRenewals" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.LateFeePerDayCents"></label>
+        <input asp-for="Item.LateFeePerDayCents" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.AutoApproveAllowed"></label>
+        <input asp-for="Item.AutoApproveAllowed" />
+    </div>
+    <hr />
+    <h4>Book Metadata (OpenLibrary)</h4>
+    <div class="form-group">
+        <label asp-for="Item.Isbn"></label>
+        <input asp-for="Item.Isbn" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.BookAuthor"></label>
+        <input asp-for="Item.BookAuthor" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.OpenLibraryWorkKey"></label>
+        <input asp-for="Item.OpenLibraryWorkKey" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.OpenLibraryEditionKey"></label>
+        <input asp-for="Item.OpenLibraryEditionKey" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.OpenLibraryJson"></label>
+        <textarea asp-for="Item.OpenLibraryJson" class="form-control" rows="6"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-outline-primary" asp-page-handler="SaveAndNew">Save & Add Another</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        (function () {
+            var status = "@(Model.StatusMessage ?? string.Empty)";
+            if (status.indexOf("Saved.") === 0) {
+                var toast = document.getElementById("saveToast");
+                if (toast) {
+                    toast.textContent = status;
+                    toast.classList.add("show");
+                    setTimeout(function () { toast.classList.remove("show"); }, 3000);
+                }
+                var input = document.getElementById("BookTitleQuery");
+                if (input) {
+                    input.focus();
+                    input.select();
+                }
+            }
+        })();
+    </script>
+}
+
+<div id="saveToast" class="save-toast"></div>

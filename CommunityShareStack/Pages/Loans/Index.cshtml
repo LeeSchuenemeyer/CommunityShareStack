@@ -1,0 +1,70 @@
+@page
+@model CommunityShareStack.Pages.Loans.IndexModel
+@{
+    ViewData["Title"] = "My Loans";
+}
+
+<h1>My Loans</h1>
+
+<h4>Active Loans</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Due</th>
+            <th>Renewals</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var loan in Model.ActiveLoans)
+    {
+        <tr>
+            <td>@loan.Item.Title</td>
+            <td>@loan.DueAt.ToLocalTime().ToString("d")</td>
+            <td>@loan.RenewalCount / @loan.MaxRenewals</td>
+            <td>@loan.Status</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<h4>Requests</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Requested</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var request in Model.Requests)
+    {
+        <tr>
+            <td>@request.Item.Title</td>
+            <td>@request.RequestedAt.ToLocalTime().ToString("g")</td>
+            <td>@request.Status</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<h4>Waitlist</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Position</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var hold in Model.Holds)
+    {
+        <tr>
+            <td>@hold.Item.Title</td>
+            <td>@hold.Position</td>
+        </tr>
+    }
+    </tbody>
+</table>

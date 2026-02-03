@@ -1,0 +1,109 @@
+@page
+@model CommunityShareStack.Pages.Admin.Dashboard.IndexModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h1>Admin Dashboard</h1>
+
+@if (!string.IsNullOrWhiteSpace(Model.StatusMessage))
+{
+    <div class="alert alert-info">@Model.StatusMessage</div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>Active Loans</h5>
+                <div class="display-4">@Model.ActiveLoansCount</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>Overdue</h5>
+                <div class="display-4">@Model.OverdueCount</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>Pending Requests</h5>
+                <div class="display-4">@Model.PendingRequestsCount</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Pending Loan Requests</h3>
+@if (Model.PendingRequests.Count == 0)
+{
+    <p class="text-muted">No pending requests.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>User</th>
+                <th>Requested</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var request in Model.PendingRequests)
+        {
+            <tr>
+                <td>@request.Item?.Title</td>
+                <td>@request.User?.Email</td>
+                <td>@request.RequestedAt.ToLocalTime().ToString("g")</td>
+                <td>
+                    <form method="post" asp-page-handler="Approve" class="d-inline">
+                        <input type="hidden" name="id" value="@request.Id" />
+                        <button type="submit" class="btn btn-sm btn-outline-primary">Approve</button>
+                    </form>
+                    <form method="post" asp-page-handler="Deny" class="d-inline">
+                        <input type="hidden" name="id" value="@request.Id" />
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Deny</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+<h3>Overdue Loans</h3>
+@if (Model.OverdueLoans.Count == 0)
+{
+    <p class="text-muted">No overdue loans.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>User</th>
+                <th>Due</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var loan in Model.OverdueLoans)
+        {
+            <tr>
+                <td>@loan.Item?.Title</td>
+                <td>@loan.User?.Email</td>
+                <td>@loan.DueAt.ToLocalTime().ToString("d")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <form method="post" asp-page-handler="SendReminders">
+        <button type="submit" class="btn btn-sm btn-outline-secondary">Send Due Reminders</button>
+    </form>
+}

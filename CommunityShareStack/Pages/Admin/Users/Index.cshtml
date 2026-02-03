@@ -1,0 +1,41 @@
+@page
+@model CommunityShareStack.Pages.Admin.Users.IndexModel
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<h1>User Management</h1>
+
+<form method="post">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Full Name</th>
+                <th>Auto-Approve</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+        @for (var i = 0; i < Model.Users.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Model.Users[i].Email
+                    <input type="hidden" asp-for="Users[i].Id" />
+                </td>
+                <td>
+                    <input asp-for="Users[i].FullName" class="form-control" />
+                </td>
+                <td class="text-center">
+                    <input asp-for="Users[i].AutoApproveEligible" />
+                </td>
+                <td>
+                    <select asp-for="Users[i].Role" class="form-control" asp-items="Model.RoleOptions"></select>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

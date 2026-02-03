@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Community Share Stack</h1>
+    <p>Track books, tools, and tech like a library. Request items, manage loans, and keep member data private.</p>
+    <p><a class="btn btn-primary" asp-page="/Items/Index">Browse Items</a></p>
+</div>
+
+<hr />
+
+<h3>Available Now</h3>
+<div class="row">
+@foreach (var item in Model.AvailableItems)
+{
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card h-100">
+            @if (!string.IsNullOrWhiteSpace(item.FeaturedImageUrl))
+            {
+                <img src="@item.FeaturedImageUrl" class="card-img-top" alt="@item.Title" />
+            }
+            else if (item.ItemType == CommunityShareStack.Models.ItemType.Book && !string.IsNullOrWhiteSpace(item.Isbn))
+            {
+                <img src="https://covers.openlibrary.org/b/isbn/@item.Isbn-M.jpg" class="card-img-top" alt="@item.Title" />
+            }
+            <div class="card-body">
+                <h5 class="card-title">@item.Title</h5>
+                <a asp-page="/Items/Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">View</a>
+            </div>
+        </div>
+    </div>
+}
+</div>

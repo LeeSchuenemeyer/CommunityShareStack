@@ -1,0 +1,193 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\scans\\1\\6673ff5c-b254-4450-9b5f-ed7cdd0e869d_PXL_20260131_204312759.RAW-01.jpg",
+      "PackagePath": "staticwebassets\\scans\\1\\6673ff5c-b254-4450-9b5f-ed7cdd0e869d_PXL_20260131_204312759.RAW-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\scans\\1\\c838343b-176d-46a1-b3fc-4c8bfbb5cc25_PXL_20260131_204341105.RAW-01.jpg",
+      "PackagePath": "staticwebassets\\scans\\1\\c838343b-176d-46a1-b3fc-4c8bfbb5cc25_PXL_20260131_204341105.RAW-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\scans\\2\\15caee31-3915-4e57-98de-560c18dae318_PXL_20260131_204341105.RAW-01.jpg",
+      "PackagePath": "staticwebassets\\scans\\2\\15caee31-3915-4e57-98de-560c18dae318_PXL_20260131_204341105.RAW-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\scans\\2\\64787270-fba8-4544-af8b-ba46b9bd893d_PXL_20260131_204312759.RAW-01.jpg",
+      "PackagePath": "staticwebassets\\scans\\2\\64787270-fba8-4544-af8b-ba46b9bd893d_PXL_20260131_204312759.RAW-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\scans\\3\\81739b01-aa7b-40c0-b7ff-4c16e51621dc_PXL_20260131_232611876.RAW-01.jpg",
+      "PackagePath": "staticwebassets\\scans\\3\\81739b01-aa7b-40c0-b7ff-4c16e51621dc_PXL_20260131_232611876.RAW-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\scans\\3\\e266a72f-09fe-49b5-8f72-ae524345ac49_PXL_20260131_232638363.RAW-01.jpg",
+      "PackagePath": "staticwebassets\\scans\\3\\e266a72f-09fe-49b5-8f72-ae524345ac49_PXL_20260131_232638363.RAW-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\leschuen\\Documents\\GitHub\\Active-Directory-Performance-Assessment-with-Azure-Monitor-workbook\\CommunityShareStack\\wwwroot\\scans\\3\\f0e94db6-98cc-4471-be72-26f798c23691_PXL_20260131_232617278.RAW-01.jpg",
+      "PackagePath": "staticwebassets\\scans\\3\\f0e94db6-98cc-4471-be72-26f798c23691_PXL_20260131_232617278.RAW-01.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CommunityShareStack.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CommunityShareStack.props",
+      "PackagePath": "build\\CommunityShareStack.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CommunityShareStack.props",
+      "PackagePath": "buildMultiTargeting\\CommunityShareStack.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CommunityShareStack.props",
+      "PackagePath": "buildTransitive\\CommunityShareStack.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
