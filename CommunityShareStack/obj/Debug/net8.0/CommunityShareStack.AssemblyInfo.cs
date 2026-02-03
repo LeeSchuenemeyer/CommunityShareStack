@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CommunityShareStack")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b80c4ef135481edff1fdfda4a4b0e37845d19955")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a6d4b1df890aee250579c881c4d33504c827c3e")]
 [assembly: System.Reflection.AssemblyProductAttribute("CommunityShareStack")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CommunityShareStack")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
