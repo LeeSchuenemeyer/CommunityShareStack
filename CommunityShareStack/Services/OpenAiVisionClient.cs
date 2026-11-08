@@ -92,6 +92,16 @@ namespace CommunityShareStack.Services
             return ExtractTextFromResponse(body);
         }
 
+        private static string GetMimeType(string path)
+        {
+            switch (Path.GetExtension(path).ToLowerInvariant())
+            {
+                case ".png": return "image/png";
+                case ".webp": return "image/webp";
+                default: return "image/jpeg";
+            }
+        }
+
         public static string TryFindIsbnFromText(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
@@ -125,7 +135,7 @@ namespace CommunityShareStack.Services
             {
                 var bytes = File.ReadAllBytes(path);
                 var base64 = Convert.ToBase64String(bytes);
-                var dataUrl = $"data:image/jpeg;base64,{base64}";
+                var dataUrl = $"data:{GetMimeType(path)};base64,{base64}";
                 contentParts.Add(new
                 {
                     type = "input_image",
@@ -270,7 +280,7 @@ namespace CommunityShareStack.Services
             {
                 var bytes = File.ReadAllBytes(path);
                 var base64 = Convert.ToBase64String(bytes);
-                var dataUrl = $"data:image/jpeg;base64,{base64}";
+                var dataUrl = $"data:{GetMimeType(path)};base64,{base64}";
                 contentParts.Add(new
                 {
                     type = "input_image",
