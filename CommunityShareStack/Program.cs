@@ -13,7 +13,11 @@ namespace CommunityShareStack
             var host = CreateHostBuilder(args).Build();
             var configuration = host.Services.GetRequiredService<IConfiguration>();
             var adminEmail = configuration["Seed:AdminEmail"];
-            SeedData.InitializeAsync(host.Services, adminEmail).GetAwaiter().GetResult();
+            // Only used to create the admin account the first time. Supply it via user
+            // secrets locally or the Seed__AdminPassword app setting in Azure; never
+            // commit it to appsettings.json.
+            var adminPassword = configuration["Seed:AdminPassword"];
+            SeedData.InitializeAsync(host.Services, adminEmail, adminPassword).GetAwaiter().GetResult();
             host.Run();
         }
 

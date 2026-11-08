@@ -8,6 +8,7 @@ using CommunityShareStack.Models;
 using CommunityShareStack.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -101,6 +102,34 @@ namespace CommunityShareStack.Pages.Scan
                 return RedirectToPage();
             }
 
+            if (files.Count > MaxFilesPerScan)
+            {
+                StatusMessage = $"Please upload at most {MaxFilesPerScan} images per scan.";
+                return RedirectToPage();
+            }
+
+            // Validate every file before writing anything. The extension is taken from
+            // the file's actual content, never from the client-supplied name, so only
+            // real JPEG/PNG/WebP images can end up under wwwroot.
+            var validated = new List<(IFormFile File, string Extension)>();
+            foreach (var file in files)
+            {
+                if (file.Length == 0 || file.Length > MaxFileBytes)
+                {
+                    StatusMessage = $"Each image must be between 1 byte and {MaxFileBytes / (1024 * 1024)} MB.";
+                    return RedirectToPage();
+                }
+
+                var extension = await DetectImageExtensionAsync(file);
+                if (extension == null)
+                {
+                    StatusMessage = "Only JPEG, PNG and WebP images are allowed.";
+                    return RedirectToPage();
+                }
+
+                validated.Add((file, extension));
+            }
+
             var session = new ScanSession
             {
                 UserId = user.Id,
@@ -112,9 +141,9 @@ namespace CommunityShareStack.Pages.Scan
             var uploadsPath = Path.Combine(_env.WebRootPath, "scans", session.Id.ToString());
             Directory.CreateDirectory(uploadsPath);
 
-            foreach (var file in files)
+            foreach (var (file, extension) in validated)
             {
-                var safeFileName = $"{Guid.NewGuid()}_{Path.GetFileName(file.FileName)}";
+                var safeFileName = $"{Guid.NewGuid()}{extension}";
                 var filePath = Path.Combine(uploadsPath, safeFileName);
                 await using var stream = new FileStream(filePath, FileMode.Create);
                 await file.CopyToAsync(stream);
@@ -277,6 +306,40 @@ namespace CommunityShareStack.Pages.Scan
 
             StatusMessage = "Item created from scan.";
             return RedirectToPage("/Items/Details", new { id = item.Id });
+        }
+
+        private const int MaxFilesPerScan = 10;
+        private const long MaxFileBytes = 10 * 1024 * 1024;
+
+        // Returns ".jpg", ".png" or ".webp" based on the file's magic bytes, or null
+        // if the content is not one of those image formats.
+        private static async Task<string> DetectImageExtensionAsync(IFormFile file)
+        {
+            var header = new byte[12];
+            int read;
+            await using (var stream = file.OpenReadStream())
+            {
+                read = await stream.ReadAsync(header, 0, header.Length);
+            }
+
+            if (read >= 3 && header[0] == 0xFF && header[1] == 0xD8 && header[2] == 0xFF)
+            {
+                return ".jpg";
+            }
+
+            if (read >= 8 && header[0] == 0x89 && header[1] == 0x50 && header[2] == 0x4E && header[3] == 0x47
+                && header[4] == 0x0D && header[5] == 0x0A && header[6] == 0x1A && header[7] == 0x0A)
+            {
+                return ".png";
+            }
+
+            if (read >= 12 && header[0] == (byte)'R' && header[1] == (byte)'I' && header[2] == (byte)'F' && header[3] == (byte)'F'
+                && header[8] == (byte)'W' && header[9] == (byte)'E' && header[10] == (byte)'B' && header[11] == (byte)'P')
+            {
+                return ".webp";
+            }
+
+            return null;
         }
 
         private static IsbnCandidate PickBestIsbn(List<IsbnCandidate> candidates)

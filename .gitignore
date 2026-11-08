@@ -1,0 +1,21 @@
+# Build output
+bin/
+obj/
+publish/
+*.user
+.vs/
+.vscode/
+.idea/
+
+# Local SQLite databases (created by EF migrations on startup)
+*.db
+*.db-shm
+*.db-wal
+
+# User-uploaded scan images
+CommunityShareStack/wwwroot/scans/
+
+# Local secrets
+.env
+*.pfx
+appsettings.*.local.json
